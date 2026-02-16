@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini Secure Bank</title>
+</head>
+<body>
+  <h1>🏦 Mini Secure Bank</h1>
+  <button onclick="enterBank()">Enter Vault</button>
+  <pre id="result"></pre>
+
+  <script>
+    async function enterBank() {
+      const response = await fetch("/vault", {
+        headers: {
+          "Authorization": "gold123"
+        }
+      });
+
+      const data = await response.json();
+      document.getElementById("result").textContent =
+        JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
